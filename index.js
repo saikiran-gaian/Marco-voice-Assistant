@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors()); // Enable CORS for all routes
 
 // Your OpenAI API Key
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY 
+const OPENAI_API_KEY = "sk-proj-IpHGD9WIO5NCmBgPwd5zT3BlbkFJPjXYQ3dQfYPO8V3c1oBR" 
 
 // Your Serper API Key
 const SERPER_API_KEY = process.env.SERPER_API_KEY

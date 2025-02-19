@@ -178,6 +178,10 @@ app.post('/api/process-speech', async (req, res) => {
   }
 });
 
+app.get('/api', (req, res) => {
+  return res.send({ data: "hii" })
+})
+
 // Start the Express server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

@@ -1,11 +1,11 @@
-
-
-
-
-
 const express = require('express');
 const dotenv = require('dotenv');
 const axios = require('axios'); // Using axios for API calls
+
+const projects = require('./router/projects');
+const people = require('./router/people');
+
+
 dotenv.config();
 
 const cors = require('cors');
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors()); // Enable CORS for all routes
 
 // Your OpenAI API Key
-const OPENAI_API_KEY = "sk-proj-IpHGD9WIO5NCmBgPwd5zT3BlbkFJPjXYQ3dQfYPO8V3c1oBR" 
+const OPENAI_API_KEY = "sk-proj-IpHGD9WIO5NCmBgPwd5zT3BlbkFJPjXYQ3dQfYPO8V3c1oBR"
 
 // Your Serper API Key
 const SERPER_API_KEY = process.env.SERPER_API_KEY
@@ -179,8 +179,14 @@ app.post('/api/process-speech', async (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-  return res.send({ data: "hii" })
+  return res.status(200).json({ data: "hi" });
 })
+
+
+app.use('/projects', projects)
+app.use('/people', people)
+
+
 
 // Start the Express server
 const PORT = process.env.PORT || 5000;
